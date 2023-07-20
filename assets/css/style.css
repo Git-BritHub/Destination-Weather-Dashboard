@@ -10,3 +10,17 @@ li {
 ul {
     padding: 0;
 }
+
+main {
+    display: flex;
+
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.weatherContent {
+    width: 100%;
+}

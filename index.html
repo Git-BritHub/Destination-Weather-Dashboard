@@ -12,17 +12,31 @@
         <header>
             <h1>Destination Weather Dashboard</h1>
         </header>
-        <section>
-            <div class="card">
-                <h1 class="searchInfo"></h1>
-                <img src="" class="currentIcon"/>
-                <ul>
-                    <li class="currentTemp"></li>
-                    <li class="currentHumidity"></li>
-                    <li class="currentWind"></li>
-                </ul>
-            </div>
-        </section>
+        <main>
+            <section class="search">
+                <input placeholder="City...">
+                <button>Search</button>
+            </section>
+
+            <section class="weatherContent">
+                <div class="current">
+                    <h1 class="searchInfo"></h1>
+                    <img src="" class="currentIcon"/>
+                    <ul>
+                        <li class="currentTemp"></li>
+                        <li class="currentHumidity"></li>
+                        <li class="currentWind"></li>
+                    </ul>
+                </div>
+                <div class="forecast">
+                    <div class="card-forecast">test</div>
+                    <div class="card-forecast">test</div>
+                    <div class="card-forecast">test</div>
+                    <div class="card-forecast">test</div>
+                    <div class="card-forecast">test</div>
+                </div>
+            </section>
+        </main>
 
         <script src="./assets/js/script.js"></script>
     </body>
