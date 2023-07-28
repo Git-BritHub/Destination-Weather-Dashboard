@@ -6,7 +6,7 @@
 header {
     display:flex;
     justify-content:flex-end;
-    color:aliceblue;
+    color:white;
     padding: 15px 30px 10px;
     background-image: linear-gradient(to right, aqua, darkblue);
 }
@@ -21,7 +21,8 @@ main {
 form {
     display:flex;
     flex-direction: column;
-    padding: 5px 15px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    margin-right: 5px;
 }
 
 input {
@@ -54,6 +55,26 @@ li {
 
 ul {
     padding: 0;
+}
+
+.weatherContent {
+    margin-right: 10px;
+}
+
+.current {
+    display: block;
+    height: 200px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color:aliceblue;
+    border: 2px solid darkblue;
+    border-radius: 8px;
+}
+
+.currentIcon {
+    background-color: rgb(165, 212, 226);
+    border-radius: 20px;
+    
 }
 
 .forecast {
