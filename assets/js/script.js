@@ -8,11 +8,7 @@ var currentWind = document.querySelector(".currentWind")
 var searchInfo = document.querySelector("#search")
 var searchInput = document.querySelector("#city")
 
-var forecast1 = document.querySelector(".forecast")
-var forecastIcon = document.querySelector(".forecastIcon")
-var forecastTemp = document.querySelector(".forecastTemp")
-var forecastHumidity = document.querySelector(".forecastHumidity")
-var forecastWind = document.querySelector(".forecastWind")
+var forecastCard = document.querySelectorAll(".card-forecast")
 
 function getData(event) {
     // fetch api call on weather api
@@ -51,24 +47,32 @@ function getData(event) {
         .then(function (res) {
             return res.json()
         })
-        .then(function (list) {
-            console.log(list)
-            var date = new Date()
-            // added +1 to getDate() so that it will do the next day
-            var day = date.getDate() + 1
-            var month = date.getMonth() + 1
-            var year = date.getFullYear()
-            var buildDate = month + "/" + day + "/" + year
-            // called forecast1.innerHTML so that data for next day will be put in forecast area, will need to create for Loop for the next day until day 5 once I get first 'next day' working
-            // replaced data with 'list' since forecast section in weather api website labels it as list?
-            // put .list[5] and list.array(5) because I noticed that the next day forecast started at 00:00am on array 5 in list but it is still pulling up all 40 array lists in console
-            forecast1.innerHTML = list.name + " - " + buildDate
+        .then(function (data) {
+            console.log(data)
+            for(let i = 0; i < forecastCard.length; i++) {
+                var listIndex = i * 8 + 4;
+                var date = new Date(data.list[listIndex].dt * 1000)
+                var day = date.getDate()
+                var month = date.getMonth() + 1
+                var year = date.getFullYear()
+                var dateEl = document.createElement("h5")
+                dateEl.innerHTML =  month + "/" + day + "/" + year
+                forecastCard[i].append(dateEl)
+                var icon = document.createElement("img")
+                icon.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[listIndex].weather[0].icon + "@2x.png")
+                icon.setAttribute("alt", data.list[listIndex].weather[0].description)
+                forecastCard[i].append(icon)
+                var tempEl = document.createElement("p")
+                tempEl.innerHTML = "Temp: " + Math.round(data.list[listIndex].main.temp) + "&#176F"
+                forecastCard[i].append(tempEl)
+                var humidityEl = document.createElement("p")
+                humidityEl.innerHTML = "Hum: " + Math.round(data.list[listIndex].main.humidity) + "%"
+                forecastCard[i].append(humidityEl)
+                var windEl = document.createElement("p")
+                windEl.innerHTML = "Wind: " + Math.round(data.list[listIndex].wind.speed) + "mph"
+                forecastCard[i].append(windEl)
 
-            forecastTemp.innerHTML = "Temperature: " + Math.round(list.main.temp) + "&#176F";
-            forecastHumidity.innerHTML = "Humidity: " + Math.round(list.main.humidity) + "%";
-            forecastWind.innerHTML = "Wind Speed: " + Math.round(list.wind.speed) + "mph";
-            forecastIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + list.weather[0].icon + "@2x.png");
-            forecastIcon.setAttribute("alt", list.weather[0].description);
+            }
         })
         .catch(function (err) {
             console.log(err)
