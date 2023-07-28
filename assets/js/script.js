@@ -26,6 +26,7 @@ function fetchSearchHistory() {
             historyList.append(btn)
         }
     } else {
+        // create else statement so that a tab isn't created when an invalid city is typed
         return;
     }
 }
