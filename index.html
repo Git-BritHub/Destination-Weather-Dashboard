@@ -13,14 +13,14 @@
             <h1>Destination Weather Dashboard</h1>
         </header>
         <main>
-            <section class="search">
-                <input placeholder="City...">
-                <button>Search</button>
-            </section>
+            <form id="search">
+                <input placeholder="City..." id="city">
+                <button for="city" id="cityButton">Search</button>
+            </form>
 
             <section class="weatherContent">
                 <div class="current">
-                    <h1 class="searchInfo"></h1>
+                    <h1 class="searchHeader"></h1>
                     <img src="" class="currentIcon"/>
                     <ul>
                         <li class="currentTemp"></li>
