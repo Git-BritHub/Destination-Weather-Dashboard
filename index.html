@@ -14,13 +14,15 @@
         </header>
         <main>
             <form id="search">
+                <h2>Search for a City:</h2>
                 <input placeholder="City..." id="city">
                 <button for="city" id="cityButton">Search</button>
                 <ul class="history"></ul>
             </form>
 
             <section class="weatherContent">
-                <div class="current">
+                <container class="current">
+                    <h2>Current Forecast:</h2>
                     <h1 class="searchHeader"></h1>
                     <img src="" class="currentIcon"/>
                     <ul>
@@ -28,15 +30,17 @@
                         <li class="currentHumidity"></li>
                         <li class="currentWind"></li>
                     </ul>
-                </div>
-                <div class="forecast">
-                    <!-- once I get forecast day 1 working, I should copy and paste for each day while naming the next one forecast2, forecast3, etc? -->
-                    <div class="card-forecast"></div>
-                    <div class="card-forecast"></div>
-                    <div class="card-forecast"></div>
-                    <div class="card-forecast"></div>
-                    <div class="card-forecast"></div>
-                </div>
+                </container>
+                <container class="forecastSection">
+                    <h2>5-Day Forecast:</h2>
+                    <div class="forecast">
+                        <div class="card-forecast"></div>
+                        <div class="card-forecast"></div>
+                        <div class="card-forecast"></div>
+                        <div class="card-forecast"></div>
+                        <div class="card-forecast"></div>
+                    </div>
+                </container>
             </section>
         </main>
 
