@@ -104,8 +104,11 @@ function getData(event, city) {
 // used submit as opposed to click to save lines of code by changing search section to form in html
 searchInfo.addEventListener("submit", function (event) {
     var city = searchInput.value.trim()
-    searchHistory.push(city)
-    localStorage.setItem("history", JSON.stringify(searchHistory))
-    getData(event, city)
-    fetchSearchHistory()
+    if (city.length > 0) {
+
+        searchHistory.push(city)
+        localStorage.setItem("history", JSON.stringify(searchHistory))
+        getData(event, city)
+        fetchSearchHistory()
+    }
 })
