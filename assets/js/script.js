@@ -37,6 +37,7 @@ function getData(event, city) {
     // fetch api call on weather api
     event.preventDefault()
     
+    // added s on end of http for link below so that fetch call wouldn't be blocked on url deployed link.
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=imperial`)
         .then(function (res) {
             // if we forget to response.json it, it wont allow us to pull all the api's info when we call the function getData()
@@ -64,6 +65,7 @@ function getData(event, city) {
             console.log(err)
         })
         
+        // added s on end of http for link below so that fetch call wouldn't be blocked on url deployed link.
         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=imperial`)
         .then(function (res) {
             return res.json()
@@ -93,7 +95,6 @@ function getData(event, city) {
                 var windEl = document.createElement("p")
                 windEl.innerHTML = "Wind: " + Math.round(data.list[listIndex].wind.speed) + "mph"
                 forecastCard[i].append(windEl)
-                
             }
         })
         .catch(function (err) {
