@@ -37,7 +37,7 @@ function getData(event, city) {
     // fetch api call on weather api
     event.preventDefault()
     
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=imperial`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=imperial`)
         .then(function (res) {
             // if we forget to response.json it, it wont allow us to pull all the api's info when we call the function getData()
             return res.json()
@@ -64,7 +64,7 @@ function getData(event, city) {
             console.log(err)
         })
         
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=imperial`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=imperial`)
         .then(function (res) {
             return res.json()
         })
